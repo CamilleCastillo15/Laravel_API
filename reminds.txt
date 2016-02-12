@@ -1,0 +1,15 @@
+Vehicle belongs to ONE Maker
+
+Maker Has Many Vehicles
+
+Vehicle
+	#serie
+	- Color
+	- Power
+	- Capacity
+	- Speed
+
+Maker
+	#id
+	- Name
+	- Phone
