@@ -1,8 +1,12 @@
 <?php namespace App\Http\Controllers;
+
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+
 use App\Maker;
+use App\Http\Requests\CreateMakerRequest;
+
 class MakerController extends Controller {
 	/**
 	 * Display a listing of the resource.
@@ -23,9 +27,16 @@ class MakerController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function store()
+	public function store(CreateMakerRequest $request)
 	{
-		//
+		$values = $request->only(['name', 'phone']);
+
+		//return 'right';
+
+		Maker::create($values);
+
+		return response()->json(['message' =>  'Maker correctly added'], 200);
+
 	}
 	/**
 	 * Display the specified resource.
